@@ -5,7 +5,15 @@ This is how I structure my serverless flask applications using AWS.
 
 ## Preparations
 ### AWS credentials
-### AWS S3
+AWS cli를 설치해 계정의 Access Key를 설정합니다. pip로 간편하게 설치할 수 있습니다.
+~~~
+$ pip install awscli
+$ aws configure --profile planb
+AWS Access Key ID [****************AIIQ]: 
+AWS Secret Access Key [****************/pLt]: 
+Default region name [None]: 
+Default output format [None]: 
+~~~
 
 ## Technical Stack
 ### Zappa
@@ -35,7 +43,7 @@ def index():
 }
 ~~~
 이후 터미널에서 'zappa deploy' 명령을 입력하면,
-1. zappa_settings.json에 명시된 profile_name의 AWS crendential에 포함된 Access Key ID/Secret Access Key를 이용해 ZappaLambdaExecutionRole이라는 IAM Role을 생성합니다.
+1. zappa_settings.json에 명시된 profile_name의 AWS credential에 포함된 Access Key ID/Secret Access Key를 이용해 ZappaLambdaExecutionRole이라는 IAM Role을 생성합니다.
 2. S3의 HeadBucket과 CreateBucket operation을 이용해 bucket을 실제로 생성합니다.
 3. Lambda의 CreateFunction operation을 이용해 app 객체의 라우팅을 기반으로 lambda function을 생성합니다.
 4. 그리고 이 리소스들을 AWS cloudformation에서 관리합니다.
