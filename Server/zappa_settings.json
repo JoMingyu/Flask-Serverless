@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "app_function": "app.app",
+        "profile_name": "planb",
+        "project_name": "flask-serverless",
+        
+        "aws_region": "ap-northeast-2",
+        "s3_bucket": "flask-serverless"
+    }
+}

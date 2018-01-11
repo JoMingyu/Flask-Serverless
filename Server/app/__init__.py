@@ -1,4 +1,4 @@
-from flask import Flask
+﻿from flask import Flask
 from flasgger import Swagger
 
 from app.docs import TEMPLATE
